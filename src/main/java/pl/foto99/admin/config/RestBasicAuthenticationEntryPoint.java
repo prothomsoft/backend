@@ -18,7 +18,7 @@ public class RestBasicAuthenticationEntryPoint extends BasicAuthenticationEntryP
         //response.addHeader("WWW-Authenticate", "Basic realm=\"" + getRealmName() + "\"");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         PrintWriter writer = response.getWriter();
-        writer.write("{\"reason\": \""+ authException.getMessage() + "\"}");
+        writer.write("{\"exception\": \""+ authException.getMessage() + "\"}");
         writer.flush();
     }
 

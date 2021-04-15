@@ -18,7 +18,7 @@ public class RestAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
 
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
-        writer.write("{\"authorization\": \"Wrong login credentials\"}");
+        writer.write("{\"jwt\": \"\"}");
         writer.flush();
     }
 }

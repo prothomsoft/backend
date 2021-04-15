@@ -38,7 +38,7 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
                 .sign(Algorithm.HMAC256(secret));
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
-        writer.write("{\"authorization\": \"Bearer " + token + "\"}");
+        writer.write("{\"jwt\": \"Bearer " + token + "\"}");
         writer.flush();
         clearAuthenticationAttributes(request);
     }

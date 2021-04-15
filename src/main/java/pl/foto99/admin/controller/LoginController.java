@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.foto99.admin.config.LoginCredentials;
 
 @RestController
+@CrossOrigin
 public class LoginController {
 
     @PostMapping("/login")
