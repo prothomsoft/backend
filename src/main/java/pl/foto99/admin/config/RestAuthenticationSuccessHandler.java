@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 @Component
@@ -35,6 +36,10 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
                 .withSubject(principal.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + expirationTime))
                 .sign(Algorithm.HMAC256(secret));
-        response.addHeader("Authorization", "Bearer " + token);
+        response.setContentType("application/json");
+        PrintWriter writer = response.getWriter();
+        writer.write("{\"authorization\": \"Bearer " + token + "\"}");
+        writer.flush();
+        clearAuthenticationAttributes(request);
     }
 }
