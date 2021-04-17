@@ -11,10 +11,4 @@ public class LoginController {
     @ResponseBody
     public void login(@RequestBody LoginCredentials credentials) {
     }
-
-    @GetMapping("/secured")
-    public String secured() {
-        return "secured";
-    }
 }
-

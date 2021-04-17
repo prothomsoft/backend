@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 public class RestAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-                                        AuthenticationException exception) throws IOException, ServletException {
+                                        AuthenticationException exception) throws IOException {
 
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();

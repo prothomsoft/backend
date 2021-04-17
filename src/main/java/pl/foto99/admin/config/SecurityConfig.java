@@ -8,25 +8,27 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
-
-import javax.sql.DataSource;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final DataSource dataSource;
+    private final MyUserDetailsService myUserDetailsService;
     private final ObjectMapper objectMapper;
     private final RestAuthenticationSuccessHandler successHandler;
     private final RestAuthenticationFailureHandler failureHandler;
     private final RestBasicAuthenticationEntryPoint authenticationEntryPoint;
     private final String secret;
 
-    public SecurityConfig(DataSource dataSource, ObjectMapper objectMapper, RestAuthenticationSuccessHandler successHandler,
+    public SecurityConfig(MyUserDetailsService myUserDetailsService, ObjectMapper objectMapper, RestAuthenticationSuccessHandler successHandler,
                           RestAuthenticationFailureHandler failureHandler,
                           RestBasicAuthenticationEntryPoint authenticationEntryPoint, @Value("${jwt.secret}") String secret) {
-        this.dataSource = dataSource;
+        this.myUserDetailsService = myUserDetailsService;
         this.objectMapper = objectMapper;
         this.successHandler = successHandler;
         this.failureHandler = failureHandler;
@@ -36,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(encoder());
     }
 
     @Override
@@ -48,17 +50,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/v2/api-docs").permitAll()
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/swagger-resources/**").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/register/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .addFilter(authenticationFilter())
-                .addFilter(new JwtAuthorizationFilter(authenticationManager(), userDetailsManager(), secret))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager(), userDetailsService(), secret))
                 .exceptionHandling()
-                .authenticationEntryPoint(authenticationEntryPoint)
-                .and()
-                .headers().frameOptions().disable();
+                .authenticationEntryPoint(authenticationEntryPoint);
     }
 
     public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
@@ -70,7 +70,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public UserDetailsManager userDetailsManager() {
-        return new JdbcUserDetailsManager(dataSource);
+    public UserDetailsService userDetailsService() {
+        return myUserDetailsService;
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
+        source.registerCorsConfiguration("/**", corsConfiguration);
+
+        return source;
+    }
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
 }

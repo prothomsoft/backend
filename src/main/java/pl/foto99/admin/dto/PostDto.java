@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class PostDto {
-    private long id;
-    private String title;
-    private String content;
-    private LocalDateTime created;
+    private final long id;
+    private final String title;
+    private final String content;
+    private final LocalDateTime created;
 }
