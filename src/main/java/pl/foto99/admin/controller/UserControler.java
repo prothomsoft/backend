@@ -16,8 +16,7 @@ public class UserControler {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-    @PostMapping("/register")
-    @ResponseBody
+    @PostMapping(value = "/register")
     public void register(@RequestBody UserDto userDto) {
         String encodedPassword = passwordEncoder.encode(userDto.getPassword());
         userDto.setPassword(encodedPassword);
