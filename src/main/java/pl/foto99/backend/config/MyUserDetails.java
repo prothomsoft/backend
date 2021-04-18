@@ -1,9 +1,9 @@
-package pl.foto99.admin.config;
+package pl.foto99.backend.config;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import pl.foto99.admin.model.User;
+import pl.foto99.backend.model.User;
 
 import java.util.Arrays;
 import java.util.Collection;

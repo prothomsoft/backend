@@ -1,4 +1,4 @@
-package pl.foto99.admin.config;
+package pl.foto99.backend.config;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;

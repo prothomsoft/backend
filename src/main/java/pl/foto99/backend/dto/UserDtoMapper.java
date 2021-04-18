@@ -1,5 +1,5 @@
-package pl.foto99.admin.dto;
-import pl.foto99.admin.model.User;
+package pl.foto99.backend.dto;
+import pl.foto99.backend.model.User;
 
 public class UserDtoMapper {
     private UserDtoMapper() {

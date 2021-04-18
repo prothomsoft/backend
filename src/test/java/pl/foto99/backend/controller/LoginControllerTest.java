@@ -1,4 +1,4 @@
-package pl.foto99.admin.controller;
+package pl.foto99.backend.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

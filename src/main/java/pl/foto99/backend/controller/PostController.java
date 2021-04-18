@@ -1,14 +1,14 @@
-package pl.foto99.admin.controller;
+package pl.foto99.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-import pl.foto99.admin.dto.PostDto;
-import pl.foto99.admin.dto.PostDtoMapper;
-import pl.foto99.admin.model.Post;
-import pl.foto99.admin.service.PostService;
+import pl.foto99.backend.dto.PostDto;
+import pl.foto99.backend.dto.PostDtoMapper;
+import pl.foto99.backend.model.Post;
+import pl.foto99.backend.service.PostService;
 
 import java.util.List;
 

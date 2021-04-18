@@ -1,6 +1,6 @@
-package pl.foto99.admin.dto;
+package pl.foto99.backend.dto;
 
-import pl.foto99.admin.model.Post;
+import pl.foto99.backend.model.Post;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package pl.foto99.admin.dto;
+package pl.foto99.backend.dto;
 
 import lombok.Builder;
 import lombok.Getter;

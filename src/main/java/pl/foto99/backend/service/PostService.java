@@ -1,13 +1,13 @@
-package pl.foto99.admin.service;
+package pl.foto99.backend.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import pl.foto99.admin.model.Comment;
-import pl.foto99.admin.model.Post;
-import pl.foto99.admin.repository.CommentRepository;
-import pl.foto99.admin.repository.PostRepository;
+import pl.foto99.backend.model.Comment;
+import pl.foto99.backend.model.Post;
+import pl.foto99.backend.repository.CommentRepository;
+import pl.foto99.backend.repository.PostRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;

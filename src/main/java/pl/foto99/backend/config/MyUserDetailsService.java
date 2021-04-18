@@ -1,12 +1,12 @@
-package pl.foto99.admin.config;
+package pl.foto99.backend.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.foto99.admin.model.User;
-import pl.foto99.admin.repository.UserRepository;
+import pl.foto99.backend.model.User;
+import pl.foto99.backend.repository.UserRepository;
 import java.util.Optional;
 
 @Service

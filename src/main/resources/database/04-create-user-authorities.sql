@@ -10,4 +10,4 @@ create table user(
 
 --changeset tprokop:5
 insert into user (id, username, password, roles, enabled)
-values (1, 'test1', '{bcrypt}$2a$10$upzXFsFUOClFRR69OMKF8eajGMRs0vhcSHqvNDKy9yfW45w7o9z6O', "USER", true);
+values (1, 'test', '$2a$10$upzXFsFUOClFRR69OMKF8eajGMRs0vhcSHqvNDKy9yfW45w7o9z6O', "USER", true);

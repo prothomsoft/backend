@@ -1,12 +1,12 @@
-package pl.foto99.admin.controller;
+package pl.foto99.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import pl.foto99.admin.dto.UserDto;
-import pl.foto99.admin.dto.UserDtoMapper;
-import pl.foto99.admin.model.User;
-import pl.foto99.admin.service.UserService;
+import pl.foto99.backend.dto.UserDto;
+import pl.foto99.backend.dto.UserDtoMapper;
+import pl.foto99.backend.model.User;
+import pl.foto99.backend.service.UserService;
 
 @RestController
 @CrossOrigin

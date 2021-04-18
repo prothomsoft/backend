@@ -1,4 +1,4 @@
-package pl.foto99.admin.controller;
+package pl.foto99.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -8,8 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import pl.foto99.admin.model.Post;
-import pl.foto99.admin.repository.PostRepository;
+import pl.foto99.backend.model.Post;
+import pl.foto99.backend.repository.PostRepository;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

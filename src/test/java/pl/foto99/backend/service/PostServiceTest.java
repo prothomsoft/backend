@@ -1,10 +1,10 @@
-package pl.foto99.admin.service;
+package pl.foto99.backend.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
-import pl.foto99.admin.model.Post;
+import pl.foto99.backend.model.Post;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

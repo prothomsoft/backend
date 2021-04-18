@@ -1,9 +1,9 @@
-package pl.foto99.admin.service;
+package pl.foto99.backend.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.foto99.admin.model.User;
-import pl.foto99.admin.repository.UserRepository;
+import pl.foto99.backend.model.User;
+import pl.foto99.backend.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package pl.foto99.admin.model;
+package pl.foto99.backend.model;
 
 import lombok.Getter;
 import lombok.Setter;

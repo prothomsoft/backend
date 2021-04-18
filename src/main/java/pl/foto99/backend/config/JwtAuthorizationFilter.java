@@ -1,4 +1,4 @@
-package pl.foto99.admin.config;
+package pl.foto99.backend.config;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

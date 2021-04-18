@@ -1,4 +1,4 @@
-package pl.foto99.admin.config;
+package pl.foto99.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

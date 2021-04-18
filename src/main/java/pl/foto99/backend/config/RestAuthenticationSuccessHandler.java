@@ -1,4 +1,4 @@
-package pl.foto99.admin.config;
+package pl.foto99.backend.config;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -37,6 +36,7 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
                 .withExpiresAt(new Date(System.currentTimeMillis() + expirationTime))
                 .sign(Algorithm.HMAC256(secret));
         response.setContentType("application/json");
+        response.addHeader("Authorization", "Bearer " + token);
         PrintWriter writer = response.getWriter();
         writer.write("{\"jwt\": \"Bearer " + token + "\"}");
         writer.flush();

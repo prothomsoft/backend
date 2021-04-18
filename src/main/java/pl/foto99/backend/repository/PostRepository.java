@@ -1,10 +1,10 @@
-package pl.foto99.admin.repository;
+package pl.foto99.backend.repository;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import pl.foto99.admin.model.Post;
+import pl.foto99.backend.model.Post;
 
 import java.util.List;
 

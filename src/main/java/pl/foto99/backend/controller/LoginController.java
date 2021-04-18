@@ -1,14 +1,18 @@
-package pl.foto99.admin.controller;
+package pl.foto99.backend.controller;
 
 import org.springframework.web.bind.annotation.*;
-import pl.foto99.admin.config.LoginCredentials;
+import pl.foto99.backend.config.LoginCredentials;
 
 @RestController
 @CrossOrigin
 public class LoginController {
 
     @PostMapping("/login")
-    @ResponseBody
     public void login(@RequestBody LoginCredentials credentials) {
+    }
+
+    @GetMapping("/secured")
+    public String secured() {
+        return "secured";
     }
 }
