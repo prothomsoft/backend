@@ -8,4 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class BucketConfig {
     private String accessId;
     private String secretKey;
+    private String profileName;
+    private String bucketName;
+    private String bucketRegion;
 }
