@@ -2,6 +2,7 @@ package pl.foto99.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ public class PostController {
 
     private final PostService postService;
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/posts")
     public List<PostDto> getPosts(@RequestParam(required = false) Integer page, Sort.Direction sort,
                                   @AuthenticationPrincipal UsernamePasswordAuthenticationToken user) {

@@ -5,9 +5,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pl.foto99.backend.model.User;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
@@ -15,15 +14,15 @@ public class MyUserDetails implements UserDetails {
     private final String username;
     private final String password;
     private final boolean enabled;
-    private final List<GrantedAuthority> authorities;
+    private final Set<GrantedAuthority> authorities;
 
     public MyUserDetails(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.enabled = user.isEnabled();
-        this.authorities = Arrays.stream(user.getRoles().split(","))
+        this.authorities = user.getRoles().stream()
                 .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
     @Override

@@ -2,10 +2,10 @@ package pl.foto99.backend.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,6 +16,8 @@ public class User {
     private long id;
     private String username;
     private String password;
-    private String roles;
     private boolean enabled;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles = new HashSet<>();
 }

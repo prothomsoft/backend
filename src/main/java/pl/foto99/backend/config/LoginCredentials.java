@@ -3,6 +3,11 @@ import lombok.Getter;
 
 @Getter
 public class LoginCredentials {
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
+
+    public LoginCredentials(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
