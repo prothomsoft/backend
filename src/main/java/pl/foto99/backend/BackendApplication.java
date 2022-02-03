@@ -12,6 +12,7 @@ import pl.foto99.backend.config.BucketConfig;
 public class BackendApplication {
 
     public static void main(String[] args) {
+        System.out.println("trigger build");
         SpringApplication.run(BackendApplication.class, args);
     }
 
