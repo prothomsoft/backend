@@ -8,7 +8,8 @@ import pl.foto99.backend.config.LoginCredentials;
 public class LoginController {
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginCredentials credentials) {
+    public LoginCredentials login(@RequestBody LoginCredentials credentials) {
+        return credentials;
     }
 
     @GetMapping("/secured")
