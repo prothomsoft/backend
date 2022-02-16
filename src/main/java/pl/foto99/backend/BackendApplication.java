@@ -10,10 +10,7 @@ import pl.foto99.backend.config.BucketConfig;
 @EnableJpaRepositories
 @EnableConfigurationProperties(value = {BucketConfig.class})
 public class BackendApplication {
-
     public static void main(String[] args) {
-        System.out.println("trigger build");
         SpringApplication.run(BackendApplication.class, args);
     }
-
 }
