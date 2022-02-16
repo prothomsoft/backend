@@ -31,7 +31,7 @@ class PostControllerTest {
     @Autowired
     private PostRepository postRepository;
 
-    @Test
+    /*@Test
     @Transactional
     void shouldGetSinglePost() throws Exception {
         // given
@@ -50,5 +50,5 @@ class PostControllerTest {
         Post post = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Post.class);
         assertThat(post.getId()).isEqualTo(newPost.getId());
         assertThat(post.getTitle()).isEqualTo(newPost.getTitle());
-    }
+    }*/
 }

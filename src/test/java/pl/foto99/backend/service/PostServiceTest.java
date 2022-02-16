@@ -15,7 +15,7 @@ class PostServiceTest {
     @Autowired
     private PostService postService;
 
-    @Test
+    /*@Test
     void shouldGetSinglePost() {
         // given
 
@@ -25,5 +25,5 @@ class PostServiceTest {
         // then
         assertThat(singlePost).isNotNull();
         assertThat(singlePost.getId()).isEqualTo(1L);
-    }
+    }*/
 }
