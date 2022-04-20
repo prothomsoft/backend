@@ -1,1 +1,0 @@
-web: java -jar admin99foto-1.0.jar
