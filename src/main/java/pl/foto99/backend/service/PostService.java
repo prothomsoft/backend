@@ -29,9 +29,8 @@ public class PostService {
         );
     }
 
-    public Post getSinglePost(long id) {
-        return postRepository.findById(id)
-                .orElseThrow();
+    public Post getSinglePost(Long id) {
+        return postRepository.findById(id).orElse(null);
     }
 
 
@@ -59,7 +58,7 @@ public class PostService {
 
     @Transactional
     public Post editPost(Post post) {
-        Post postEdited = postRepository.findById(post.getId()).orElseThrow();
+        Post postEdited = postRepository.findById(post.getId()).orElse(new Post());
         postEdited.setTitle(post.getTitle());
         postEdited.setContent(post.getContent());
         return postEdited;

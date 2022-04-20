@@ -7,10 +7,13 @@ import org.springframework.stereotype.Repository;
 import pl.foto99.backend.model.Post;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query("Select p From Post p")
     List<Post> findAllPosts(Pageable page);
+
+    Optional<Post> findById(Long id);
 }
