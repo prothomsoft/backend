@@ -2,10 +2,14 @@ package pl.foto99.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 import pl.foto99.backend.dto.PostDto;
 import pl.foto99.backend.dto.PostDtoMapper;
 import pl.foto99.backend.model.Post;
@@ -41,8 +45,11 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public Post addPost(@RequestBody Post post) {
-        return postService.addPost(post);
+    public ResponseEntity<Object> addPost(@RequestBody Post post) {
+        postService.addPost(post);
+        UriComponents uriComponents = UriComponentsBuilder.fromHttpUrl("http://localhost:5000/posts/{id}").buildAndExpand(post.getId());
+        return ResponseEntity.created(uriComponents.toUri()).build();
+        //return ResponseEntity.status(HttpStatus.CREATED).body(post);
     }
 
     @PutMapping("/posts")
